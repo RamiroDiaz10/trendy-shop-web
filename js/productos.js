@@ -1,4 +1,3 @@
-// MODIFICADO: Ahora la función recibe si debe mostrar símbolos o no como último parámetro
 async function obtenerProductos(mostrarSimbolos, ...categorias) {
 
     document.getElementById("productos").innerHTML = "";
@@ -11,7 +10,6 @@ async function obtenerProductos(mostrarSimbolos, ...categorias) {
         console.log(productos);
 
         productos.forEach(producto => {
-            // ====== CÓDIGO AGREGADO: Guardamos los símbolos en una variable solo si 'mostrarSimbolos' es true ======
             let simbolosHtml = "";
             if (mostrarSimbolos) {
                 simbolosHtml = `
@@ -48,7 +46,6 @@ async function obtenerProductos(mostrarSimbolos, ...categorias) {
 function obtenerProductosHombre() {
     document.getElementById("Hombre")
         .addEventListener("change", function () {
-            // MODIFICADO: Enviamos 'true' para que SÍ muestre los símbolos
             obtenerProductos(true, "mens-shirts", "mens-shoes", "mens-watches");
         });
 }
@@ -56,7 +53,6 @@ function obtenerProductosHombre() {
 function obtenerProductosMujer() {
     document.getElementById("Mujer")
         .addEventListener("change", function () {
-            // MODIFICADO: Enviamos 'true' para que SÍ muestre los símbolos
             obtenerProductos(true, "womens-dresses", "womens-shoes", "womens-watches", "tops");
         });
 }
@@ -64,7 +60,6 @@ function obtenerProductosMujer() {
 function obtenerProductosJewelery() {
     document.getElementById("Accesorios")
         .addEventListener("change", function () {
-            // MODIFICADO: Enviamos 'false' para que NO muestre imágenes sobrepuestas
             obtenerProductos(false, "womens-jewellery", "womens-bags", "sunglasses");
         });
 }
@@ -72,3 +67,6 @@ function obtenerProductosJewelery() {
 obtenerProductosHombre();
 obtenerProductosMujer();
 obtenerProductosJewelery();
+
+obtenerProductos(true, "mens-shirts", "mens-shoes", "mens-watches");
+
