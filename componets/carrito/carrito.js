@@ -1,4 +1,4 @@
-import { obtenerCarrito, eliminarDelCarrito, vaciarCarrito, calcularTotal } from "../../services/cartService.js";
+import { obtenerCarrito, eliminarDelCarrito, vaciarCarrito, calcularTotal, agregarAlCarrito, disminuirCantidad } from "../../services/cartService.js";
 
 class CartModal extends HTMLElement {
   connectedCallback() {
@@ -35,6 +35,22 @@ class CartModal extends HTMLElement {
         eliminarDelCarrito(id);
         this.renderizar();
       }
+
+      if (e.target.classList.contains("cart-item-sumar")) {
+        const id = Number(e.target.dataset.id);
+        const carrito = obtenerCarrito();
+        const item = carrito.find(p => p.id === id);
+        if (item) {
+          agregarAlCarrito(item);
+          this.renderizar();
+        }
+      }
+
+      if (e.target.classList.contains("cart-item-restar")) {
+        const id = Number(e.target.dataset.id);
+        disminuirCantidad(id);
+        this.renderizar();
+      }
     });
 
     window.addEventListener("carrito-actualizado", () => this.renderizar());
@@ -63,7 +79,11 @@ class CartModal extends HTMLElement {
           <img src="${item.thumbnail}" alt="${item.title}">
           <div class="cart-item-info">
             <p class="cart-item-title">${item.title}</p>
-            <p>Cantidad: ${item.cantidad}</p>
+            <div class="cart-item-cantidad">
+              <button class="cart-item-restar" data-id="${item.id}">-</button>
+              <span>${item.cantidad}</span>
+              <button class="cart-item-sumar" data-id="${item.id}">+</button>
+            </div>
             <p>$${(item.price * item.cantidad).toFixed(2)}</p>
           </div>
           <button class="cart-item-eliminar" data-id="${item.id}">Eliminar</button>

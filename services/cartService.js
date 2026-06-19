@@ -29,6 +29,21 @@ function agregarAlCarrito(producto) {
     guardarCarrito(carrito);
 }
 
+function disminuirCantidad(id) {
+    const carrito = obtenerCarrito();
+    const item = carrito.find(item => item.id === id);
+    if (!item) return;
+
+    item.cantidad -= 1;
+
+    if (item.cantidad <= 0) {
+        const nuevoCarrito = carrito.filter(item => item.id !== id);
+        guardarCarrito(nuevoCarrito);
+    } else {
+        guardarCarrito(carrito);
+    }
+}
+
 function eliminarDelCarrito(id) {
     const carrito = obtenerCarrito().filter(item => item.id !== id);
     guardarCarrito(carrito);
@@ -43,4 +58,4 @@ function calcularTotal() {
     return obtenerCarrito().reduce((total, item) => total + (item.price * item.cantidad), 0);
 }
 
-export { obtenerCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito, calcularTotal };
+export { obtenerCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito, calcularTotal, disminuirCantidad};
