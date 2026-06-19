@@ -36,6 +36,7 @@ function eliminarDelCarrito(id) {
 
 function vaciarCarrito() {
     localStorage.removeItem(CART_KEY);
+    guardarCarrito();
 }
 
 function calcularTotal() {
