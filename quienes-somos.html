@@ -8,8 +8,10 @@
 </head>
 
 <body>
-    <script src="componets/navbar/navbar.js"></script>
-
+    <nav-bar></nav-bar>
+    <!-- Inicio navbar Daniel -->
+    <nav></nav>
+    
     <main class="about">
         <!--  HERO  -->
         <section class="about-hero">
@@ -29,7 +31,7 @@
                 </p>
             </div>
         </section>
-
+        
         <!--  FRANJA DE NÚMEROS  -->
         <section class="stat-strip" aria-label="TrendyShop en números">
             <div class="stat-strip__item">
@@ -49,7 +51,7 @@
                 <span class="stat-strip__label">La promesa de envío que nos hizo crecer</span>
             </div>
         </section>
-
+        
         <!--  HISTORIA  -->
         <section class="story">
             <div class="story__media" aria-hidden="true">
@@ -76,7 +78,7 @@
                 </p>
             </div>
         </section>
-
+        
         <!--  MANIFIESTO  -->
         <section class="manifesto">
             <span class="eyebrow">El código TrendyShop</span>
@@ -111,12 +113,12 @@
                 </li>
             </ol>
         </section>
-
+        
         <!--  VALORES  -->
         <section class="values">
             <span class="eyebrow eyebrow--dark">Lo que nos mueve</span>
             <h2 class="values__title">Tres cosas que no negociamos</h2>
-
+            
             <div class="values__grid">
                 <article class="value-card">
                     <span class="value-card__mark" aria-hidden="true">—</span>
@@ -126,7 +128,7 @@
                         que sí responde.
                     </p>
                 </article>
-
+                
                 <article class="value-card">
                     <span class="value-card__mark" aria-hidden="true">—</span>
                     <h3 class="value-card__title">Actitud propia</h3>
@@ -135,7 +137,7 @@
                         más auténtica.
                     </p>
                 </article>
-
+                
                 <article class="value-card">
                     <span class="value-card__mark" aria-hidden="true">—</span>
                     <h3 class="value-card__title">Experiencia sin fricción</h3>
@@ -146,7 +148,7 @@
                 </article>
             </div>
         </section>
-
+        
         <!-- CTA FINAL -->
         <section class="section">
             <div class="cta reveal">
@@ -155,9 +157,9 @@
                 <a href="catalogo.html" class="btn btn--primary">Ver catálogo</a>
             </div>
         </section>
-
+        
     </main>
-
+    
     <!-- EQUIPO -->
     <section class="section section--surface">
         <div class="container">
@@ -176,17 +178,17 @@
                     <p class="team-card__role">Frontend &amp; UI</p>
                     <p class="team-card__bio">Página de inicio y catálogo de productos.</p>
                 </article>
-
-            <div class="team-grid reveal">
-                <article class="team-card">
-                    <div class="team-card__photo">
+                
+                <div class="team-grid reveal">
+                    <article class="team-card">
+                        <div class="team-card__photo">
                         <img src="img/foto-juan.png" alt="Foto de Juan">
                     </div>
                     <h3>Juan Vivas</h3>
                     <p class="team-card__role">Frontend &amp; UI</p>
                     <p class="team-card__bio">Página de inicio y pruebas responsivas.</p>
                 </article>
-
+                
                 <article class="team-card">
                     <div class="team-card__photo">
                         <img src="img/foto-manuel.jpeg" alt="Foto de manuel">
@@ -195,7 +197,7 @@
                     <p class="team-card__role">Frontend &amp; UX</p>
                     <p class="team-card__bio">Quiénes Somos y dirección visual de marca.</p>
                 </article>
-
+                
                 <article class="team-card">
                     <div class="team-card__photo">
                         <img src="img/foto-daniel.jpg" alt="Foto de Daniel">
@@ -204,7 +206,7 @@
                     <p class="team-card__role">Carrito de compras</p>
                     <p class="team-card__bio">Lógica de carrito y persistencia en localStorage.</p>
                 </article>
-
+                
                 <article class="team-card">
                     <div class="team-card__photo">
                          <img src="img/foto-ramiro.png" alt="Foto de Ramiro">
@@ -216,8 +218,11 @@
             </div>
         </div>
     </section>
+    <mi-footer></mi-footer>
+    
 
-     <script src="componets/navbar/navbar.js"></script>
+    <script type="module" src="componets/navbar/navbar.js"></script>
+    <script src="componets/navbar/navbar.js"></script>
     <script src="componets/footer/footer.js"></script>
 </body>
 
