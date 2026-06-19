@@ -1,0 +1,22 @@
+:root {
+    --azul-marino-profundo: #1C3A62;
+    --beige-arena-suave: #F5F1E9;
+    --ambar-dorado: #BF8F30;
+    --gris-piedra-claro: #A8A8A8;
+    --blanco-nieve: #FFFFFF;
+}
+
+
+nav-bar nav {
+    background-color: var(--azul-marino-profundo);
+}
+
+nav-bar a {
+    color: var(--beige-arena-suave);
+}
+
+mi-footer {
+    background-color: var(--beige-arena-suave);
+    color: var(--azul-marino-profundo);
+    border-top: 3px solid var(--ambar-dorado);
+}
