@@ -231,5 +231,414 @@ a:hover {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
 
+main {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section,
+.about section {
+  padding: 6rem 8%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 
+   TEXTOS GENERALES
+ */
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrow--dark {
+  color: var(--text-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* 
+   HERO
+ */
+
+.about-hero {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  background: var(--bg-surface);
+}
+
+.about-hero__media {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  background:
+    linear-gradient(rgba(28, 58, 98, .35), rgba(28, 58, 98, .35)),
+    url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=80") center center/cover;
+}
+
+.about-hero__content {
+  padding: 4rem;
+}
+
+.about-hero__title {
+  font-family: var(--font-headings);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.about-hero__lead {
+  max-width: 500px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* 
+   FRANJA DE ESTADÍSTICAS
+ */
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--color-brand);
+  color: white;
+}
+
+.stat-strip__item {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.stat-strip__number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.stat-strip__label {
+  color: rgba(255, 255, 255, .8);
+  font-size: .95rem;
+}
+
+/* 
+   HISTORIA
+ */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.story__media {
+  min-height: 550px;
+  background:
+    linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)),
+    url("https://images.unsplash.com/photo-1512101903502-7eb0c9022c74?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center/cover;
+}
+
+.story__content {
+  padding: 4rem;
+}
+
+.story__title {
+  font-family: var(--font-headings);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.story__text {
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.story__text--strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* 
+   MANIFIESTO
+ */
+
+.manifesto {
+  background: var(--bg-surface);
+  text-align: center;
+}
+
+.manifesto__title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 4rem;
+}
+
+.manifesto__list {
+  list-style: none;
+  max-width: 900px;
+  margin: auto;
+}
+
+.manifesto__item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.manifesto__number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  min-width: 80px;
+}
+
+.manifesto__text {
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+/*
+   VALORES
+*/
+
+.values {
+  text-align: center;
+}
+
+.values__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 4rem;
+}
+
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.value-card {
+  background: var(--bg-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: .3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+}
+
+.value-card__mark {
+  display: block;
+  font-size: 3rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.value-card__title {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.value-card__text {
+  color: var(--text-secondary);
+}
+
+/* 
+   CTA FINAL
+ */
+
+.cta {
+  background: var(--color-brand);
+  color: white;
+  text-align: center;
+  padding: 4rem;
+  border-radius: var(--radius-lg);
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  margin-bottom: 2rem;
+  opacity: .9;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 1.8rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+}
+
+/* 
+   EQUIPO
+ */
+
+.section--surface {
+  background: var(--bg-surface);
+}
+
+.section__head {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section__head h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.section__head p {
+  color: var(--text-secondary);
+}
+
+.team-grid {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  
+}
+
+.team-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: .3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.team-card__photo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-card__photo img {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+.team-card__initial {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.team-card__role {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: .5rem 0;
+}
+
+.team-card__bio {
+  color: var(--text-secondary);
+  font-size: .95rem;
+}
+
+/* 
+   RESPONSIVE
+ */
+
+@media (max-width: 992px) {
+
+  .about-hero,
+  .story {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__media,
+  .story__media {
+    min-height: 400px;
+  }
+
+  .values__grid,
+  .team-grid,
+  .stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-hero__content,
+  .story__content {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .values__grid,
+  .team-grid,
+  .stat-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .manifesto__item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .manifesto__text {
+    text-align: center;
+  }
+
+  .cta {
+    padding: 3rem 1.5rem;
+  }
+
+  .section,
+  .about section {
+    padding: 4rem 5%;
+  }
+}
 
