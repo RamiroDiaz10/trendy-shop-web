@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.navbar button svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    background: blue;
+    padding: 10px 50px;
+    color: white;
+}
+
+header nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.logo {
+    margin: auto;
+}
+
+header .navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header .navbar ul li {
+    position: relative;
+}
+header .navbar ul li::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: width 0.3s ease;
+}
+
+header nav ul li:hover::after {
+    width: 100%;
+}
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+header nav ul li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+
+#carrito {
+    justify-self: end;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header nav {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header .navbar ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: blue;
+        flex-direction: column;
+        padding: 1rem 50px;
+    }
+
+    header .navbar ul.activo {
+        display: flex;
+    }
+
+    header nav ul li:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    .navbar {
+        position: relative;
+    }
+}

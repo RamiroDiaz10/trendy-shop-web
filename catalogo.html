@@ -1,35 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
+  <head>
     <title>Catalogo</title>
-</head>
+    <link rel="stylesheet" href="componets/navbar/navbar.css" />
+    <link rel="stylesheet" href="componets/carrito/carrito.css" />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <nav-bar></nav-bar>
+    </header>
 
     <nav id="TrendyShopCategories">
-
-        <button id="Hombre">Hombre</button>
-        <button id="Mujer">Mujer</button>
-        <button id="Accesorios">Accesorios</button>
-
+      <button id="Hombre">Hombre</button>
+      <button id="Mujer">Mujer</button>
+      <button id="Accesorios">Accesorios</button>
     </nav>
 
-    <div id="productos">
+    <div id="productos"></div>
+    <cart-modal></cart-modal>
 
-
-
-
-    </div>
-
-    <script src="componets/navbar/navbar.js"></script>
-    <script src="componets/footer/footer.js"></script>
-    <script src="js/productos.js"></script>
-
-
-
-
-</body>
-
-
+    
+    <script type="module" src="componets/navbar/navbar.js"></script>
+    <script type="module" src="componets/footer/footer.js"></script>
+    <script type="module" src="componets/carrito/carrito.js"></script>
+    <script type="module" src="js/productos.js"></script>
+  </body>
 </html>
