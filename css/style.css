@@ -1,31 +1,143 @@
 :root {
   /* --- COLORES PRIMARIOS (Fondos y Superficies) --- */
-  --bg-main: #ffffff;          /* Blanco Nieve: Fondo limpio para que la ropa resalte */
-  --bg-surface: #f5f1e9;       /* Beige Arena Suave: Para tarjetas, bloques de sección y banners */
-  --bg-surface-hover: #eae4d9; /* Beige ligeramente más oscuro para interacciones (hovers) */
+  --bg-main: #ffffff;
+  /* Blanco Nieve: Fondo limpio para que la ropa resalte */
+  --bg-surface: #f5f1e9;
+  /* Beige Arena Suave: Para tarjetas, bloques de sección y banners */
+  --bg-surface-hover: #eae4d9;
+  /* Beige ligeramente más oscuro para interacciones (hovers) */
 
   /* --- COLORES DE TEXTO (Legibilidad y Jerarquía) --- */
-  --text-primary: #1c3a62;     /* Azul Marino Profundo: Contraste impecable y elegante para títulos y textos */
-  --text-secondary: #576b85;   /* Azul Marino atenuado para descripciones secundarias */
-  --text-muted: #a8a8a8;       /* Gris Piedra Claro: Para placeholders, breadcrumbs o bordes decorativos */
+  --text-primary: #1c3a62;
+  /* Azul Marino Profundo: Contraste impecable y elegante para títulos y textos */
+  --text-secondary: #576b85;
+  /* Azul Marino atenuado para descripciones secundarias */
+  --text-muted: #a8a8a8;
+  /* Gris Piedra Claro: Para placeholders, breadcrumbs o bordes decorativos */
 
   /* --- BRANDING & ACCENT (Llamados a la acción y conversión) --- */
-  --color-brand: #1c3a62;       /* Azul Marino como color principal de marca (Botón principal de compra) */
-  --color-brand-hover: #122744; /* Azul Marino más oscuro para el hover del botón de compra */
-  --color-accent: #bf8f30;      /* Ámbar Dorado: Exclusivo para badges de 'Descuento', 'Nuevo', precios o estrellitas de reviews */
-  --color-accent-hover: #a17724;/* Ámbar sutilmente más oscuro */
+  --color-brand: #1c3a62;
+  /* Azul Marino como color principal de marca (Botón principal de compra) */
+  --color-brand-hover: #122744;
+  /* Azul Marino más oscuro para el hover del botón de compra */
+  --color-accent: #bf8f30;
+  /* Ámbar Dorado: Exclusivo para badges de 'Descuento', 'Nuevo', precios o estrellitas de reviews */
+  --color-accent-hover: #a17724;
+  /* Ámbar sutilmente más oscuro */
 
   /* --- COMPONENTES UI --- */
-  --border-color: #e2e8f0;     /* Gris muy suave para separar tablas o inputs sin ensuciar la interfaz */
+  --border-color: #e2e8f0;
+  /* Gris muy suave para separar tablas o inputs sin ensuciar la interfaz */
 
   /* --- TIPOGRAFÍA --- */
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-headings: 'Plus Jakarta Sans', var(--font-main);
 
   /* --- DISEÑO Y DISEÑO ADAPTABLE (Layout Tokens) --- */
-  --radius-sm: 4px;            /* Para inputs de formularios y etiquetas */
-  --radius-md: 6px;            /* Para los botones principales de añadir al carrito */
-  --radius-lg: 12px;           /* Para tarjetas de productos y banners promocionales */
-  
-  --shadow-sm: 0 4px 12px rgba(28, 58, 98, 0.05); /* Sombra sutil usando el Azul Marino con opacidad baja */
+  --radius-sm: 4px;
+  /* Para inputs de formularios y etiquetas */
+  --radius-md: 6px;
+  /* Para los botones principales de añadir al carrito */
+  --radius-lg: 12px;
+  /* Para tarjetas de productos y banners promocionales */
+
+  --shadow-sm: 0 4px 12px rgba(28, 58, 98, 0.05);
+  /* Sombra sutil usando el Azul Marino con opacidad baja */
+}
+
+
+
+* {
+  box-sizing: border-box;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+}
+
+#productos {
+  display: flex;
+  flex-wrap: wrap;           /* Permite que las tarjetas bajen a la siguiente fila */
+  justify-content: center;   /* Centra las tarjetas en la pantalla */
+  gap: 24px;                 /* Crea una separación perfecta de 24px arriba, abajo y a los lados */
+  padding: 24px;             /* Margen interno para que no peguen contra los bordes de la pantalla */
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  gap: 18px;
+  margin-bottom: 24px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  background-color: var(--bg-surface-hover);
+  box-shadow: 0 8px 24px rgba(28, 58, 98, 0.1);
+}
+
+.btn.btn-primary {
+  background-color: var(--color-brand);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+  background-color: var(--color-brand-hover);
+}
+
+
+.navbar.navbar-light {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  background-color: var(--bg-main) !important;
+
+}
+
+.btn:focus,
+.btn.focus,
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: none !important;
+
+  border-color: transparent !important;
+}
+
+.btn-group-toggle label:has(input:checked) {
+  background-color: var(--color-brand) !important;
+  color: #ffffff;
+}
+
+/* 3. Asegura que los botones no seleccionados tengan un fondo sutil o hereden el diseño */
+.btn-group-toggle label:not(:has(input:checked)) {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ==================================================================
+   CORRECCIÓN DEL CONTENEDOR (Se posiciona exactamente sobre la foto)
+   ================================================================== */
+.contenedor-simbolos {
+  position: absolute;   
+  z-index: 10;          
+  bottom: 12px;         
+  left: 12px;          
+  display: flex;       
+  gap: 8px;             
+  margin-top: 0 !important; 
+}
+
+
+.contenedor-simbolos img {
+  width: 32px;          /* Ajusta aquí el ancho de los 3 símbolos juntos */
+  height: 32px;         /* Ajusta aquí el alto de los 3 símbolos juntos */
+  object-fit: contain;  /* Evita que los PNGs se deformen */
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25)); /* Opcional: les da una sombra sutil para que resalten sobre cualquier ropa */
+  transition: transform 0.2s ease;
 }

@@ -1,21 +1,42 @@
-async function obtenerProductos(...categorias) {
-    
+// MODIFICADO: Ahora la función recibe si debe mostrar símbolos o no como último parámetro
+async function obtenerProductos(mostrarSimbolos, ...categorias) {
+
     document.getElementById("productos").innerHTML = "";
 
     for (const categoria of categorias) {
         const respuesta = await fetch('https://dummyjson.com/products/category/' + categoria + '?limit=50');
         const datos = await respuesta.json();
-        
+
         const productos = datos.products;
         console.log(productos);
-        
+
         productos.forEach(producto => {
+            // ====== CÓDIGO AGREGADO: Guardamos los símbolos en una variable solo si 'mostrarSimbolos' es true ======
+            let simbolosHtml = "";
+            if (mostrarSimbolos) {
+                simbolosHtml = `
+        <div class="contenedor-simbolos">
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/HL1T4Jkw/logos4-removebg-preview.png" alt="logos4" border="0"></a>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/ycZcjcwt/logos3-removebg-preview.png" alt="logos3" border="0"></a>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/whPkXC3d/logos-removebg-preview.png" alt="logos" border="0"></a>
+        </div>
+    `;
+            }
+
+
             document.getElementById("productos").innerHTML += `
             <div class="card" style="width: 18rem;">
-                <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+                
+                <div class="card-image-container" style="position: relative; overflow: hidden;">
+                    <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+                    
+                    ${simbolosHtml}
+                </div>
+
                 <div class="card-body">
                     <h5 class="card-title">${producto.title}</h5>
                     <p class="card-text">${producto.description}</p>
+                    <p class="card-text"><strong>Precio: $${(producto.price * 4000).toLocaleString('es-CO')} COP</strong></p>
                     <a href="#" class="btn btn-primary">Agregar al carrito</a>
                 </div>
             </div>
@@ -24,31 +45,30 @@ async function obtenerProductos(...categorias) {
     }
 }
 
-function obtenerProductosHombre ()
- {
+function obtenerProductosHombre() {
     document.getElementById("Hombre")
-        .addEventListener("click", function () {
-            obtenerProductos("mens-shirts", "mens-shoes", "mens-watches");
+        .addEventListener("change", function () {
+            // MODIFICADO: Enviamos 'true' para que SÍ muestre los símbolos
+            obtenerProductos(true, "mens-shirts", "mens-shoes", "mens-watches");
         });
 }
 
-function obtenerProductosMujer ()
- {
+function obtenerProductosMujer() {
     document.getElementById("Mujer")
-        .addEventListener("click", function () {
-            obtenerProductos("womens-dresses", "tops", "womens-shoes", "womens-watches");
+        .addEventListener("change", function () {
+            // MODIFICADO: Enviamos 'true' para que SÍ muestre los símbolos
+            obtenerProductos(true, "womens-dresses", "womens-shoes", "womens-watches", "tops");
         });
 }
 
-function obtenerProductosJewelery ()
- {
+function obtenerProductosJewelery() {
     document.getElementById("Accesorios")
-        .addEventListener("click", function () {
-            obtenerProductos("womens-jewellery", "womens-bags", "sunglasses");
+        .addEventListener("change", function () {
+            // MODIFICADO: Enviamos 'false' para que NO muestre imágenes sobrepuestas
+            obtenerProductos(false, "womens-jewellery", "womens-bags", "sunglasses");
         });
-}   
+}
 
 obtenerProductosHombre();
 obtenerProductosMujer();
 obtenerProductosJewelery();
-

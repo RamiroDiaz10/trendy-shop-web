@@ -3,31 +3,38 @@
 
 <head>
     <title>Catalogo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <nav id="TrendyShopCategories">
+    <nav id="TrendyShopCategories" class="navbar navbar-light bg-light justify-content-center mt-4">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
 
-        <button id="Hombre">Hombre</button>
-        <button id="Mujer">Mujer</button>
-        <button id="Accesorios">Accesorios</button>
+            <label class="btn btn-primary active">
+                <input type="radio" name="categories" id="Hombre" autocomplete="off" checked> Hombre
+            </label>
 
+            <label class="btn btn-primary">
+                <input type="radio" name="categories" id="Mujer" autocomplete="off"> Mujer
+            </label>
+
+            <label class="btn btn-primary">
+                <input type="radio" name="categories" id="Accesorios" autocomplete="off"> Accesorios
+            </label>
+
+        </div>
     </nav>
 
-    <div id="productos">
-
-
-
+    <div id="productos" class="d-flex flex-wrap justify-content-centermt-4">
 
     </div>
-
-    <script src="componets/navbar/navbar.js"></script>
-    <script src="componets/footer/footer.js"></script>
-    <script src="js/productos.js"></script>
-
-
-
+   
+<script src="componets/navbar/navbar.js"></script>
+<script src="componets/footer/footer.js"></script>
+<script src="js/productos.js"></script>
 
 </body>
 
