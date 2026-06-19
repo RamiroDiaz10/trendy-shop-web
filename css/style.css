@@ -1,31 +1,52 @@
 :root {
   /* --- COLORES PRIMARIOS (Fondos y Superficies) --- */
-  --bg-main: #ffffff;          /* Blanco Nieve: Fondo limpio para que la ropa resalte */
-  --bg-surface: #f5f1e9;       /* Beige Arena Suave: Para tarjetas, bloques de sección y banners */
-  --bg-surface-hover: #eae4d9; /* Beige ligeramente más oscuro para interacciones (hovers) */
+  --bg-main: #ffffff;
+  /* Blanco Nieve: Fondo limpio para que la ropa resalte */
+  --bg-surface: #f5f1e9;
+  /* Beige Arena Suave: Para tarjetas, bloques de sección y banners */
+  --bg-surface-hover: #eae4d9;
+  /* Beige ligeramente más oscuro para interacciones (hovers) */
 
   /* --- COLORES DE TEXTO (Legibilidad y Jerarquía) --- */
-  --text-primary: #1c3a62;     /* Azul Marino Profundo: Contraste impecable y elegante para títulos y textos */
-  --text-secondary: #576b85;   /* Azul Marino atenuado para descripciones secundarias */
-  --text-muted: #a8a8a8;       /* Gris Piedra Claro: Para placeholders, breadcrumbs o bordes decorativos */
+  --text-primary: #1c3a62;
+  /* Azul Marino Profundo: Contraste impecable y elegante para títulos y textos */
+  --text-secondary: #576b85;
+  /* Azul Marino atenuado para descripciones secundarias */
+  --text-muted: #a8a8a8;
+  /* Gris Piedra Claro: Para placeholders, breadcrumbs o bordes decorativos */
 
   /* --- BRANDING & ACCENT (Llamados a la acción y conversión) --- */
-  --color-brand: #1c3a62;       /* Azul Marino como color principal de marca (Botón principal de compra) */
-  --color-brand-hover: #122744; /* Azul Marino más oscuro para el hover del botón de compra */
-  --color-accent: #bf8f30;      /* Ámbar Dorado: Exclusivo para badges de 'Descuento', 'Nuevo', precios o estrellitas de reviews */
-  --color-accent-hover: #a17724;/* Ámbar sutilmente más oscuro */
+  --color-brand: #1c3a62;
+  /* Azul Marino como color principal de marca (Botón principal de compra) */
+  --color-brand-hover: #122744;
+  /* Azul Marino más oscuro para el hover del botón de compra */
+  --color-accent: #bf8f30;
+  /* Ámbar Dorado: Exclusivo para badges de 'Descuento', 'Nuevo', precios o estrellitas de reviews */
+  --color-accent-hover: #a17724;
+  /* Ámbar sutilmente más oscuro */
 
   /* --- COMPONENTES UI --- */
-  --border-color: #e2e8f0;     /* Gris muy suave para separar tablas o inputs sin ensuciar la interfaz */
+  --border-color: #e2e8f0;
+  /* Gris muy suave para separar tablas o inputs sin ensuciar la interfaz */
 
   /* --- TIPOGRAFÍA --- */
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-headings: 'Plus Jakarta Sans', var(--font-main);
 
   /* --- DISEÑO Y DISEÑO ADAPTABLE (Layout Tokens) --- */
-  --radius-sm: 4px;            /* Para inputs de formularios y etiquetas */
-  --radius-md: 6px;            /* Para los botones principales de añadir al carrito */
-  --radius-lg: 12px;           /* Para tarjetas de productos y banners promocionales */
-  
-  --shadow-sm: 0 4px 12px rgba(28, 58, 98, 0.05); /* Sombra sutil usando el Azul Marino con opacidad baja */
+  --radius-sm: 4px;
+  /* Para inputs de formularios y etiquetas */
+  --radius-md: 6px;
+  /* Para los botones principales de añadir al carrito */
+  --radius-lg: 12px;
+  /* Para tarjetas de productos y banners promocionales */
+
+  --shadow-sm: 0 4px 12px rgba(28, 58, 98, 0.05);
+  /* Sombra sutil usando el Azul Marino con opacidad baja */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
