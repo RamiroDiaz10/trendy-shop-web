@@ -1,3 +1,4 @@
+
 import { getProductos } from "../services/productService.js";
 import { agregarAlCarrito } from "../services/cartService.js";
 
@@ -5,23 +6,46 @@ let productos = []
 
 
 
-async function obtenerProductos(...categorias) {
+
+async function obtenerProductos(mostrarSimbolos, ...categorias) {
 
     document.getElementById("productos").innerHTML = "";
     productos = [];
 
     for (const categoria of categorias) {
-        const productosCategoria = await getProductos(categoria);
-        productos.push(...productosCategoria);
+        const respuesta = await fetch('https://dummyjson.com/products/category/' + categoria + '?limit=50');
+        const datos = await respuesta.json();
 
-        productosCategoria.forEach(producto => {
+        const productos = datos.products;
+        console.log(productos);
+
+        productos.forEach(producto => {
+            let simbolosHtml = "";
+            if (mostrarSimbolos) {
+                simbolosHtml = `
+        <div class="contenedor-simbolos">
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/HL1T4Jkw/logos4-removebg-preview.png" alt="logos4" border="0"></a>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/ycZcjcwt/logos3-removebg-preview.png" alt="logos3" border="0"></a>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/whPkXC3d/logos-removebg-preview.png" alt="logos" border="0"></a>
+        </div>
+    `;
+            }
+
+
             document.getElementById("productos").innerHTML += `
             <div class="card" style="width: 18rem;">
-                <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+                
+                <div class="card-image-container" style="position: relative; overflow: hidden;">
+                    <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+                    
+                    ${simbolosHtml}
+                </div>
+
                 <div class="card-body">
                     <h5 class="card-title">${producto.title}</h5>
                     <p class="card-text">${producto.description}</p>
-                    <button data-id="${producto.id}" class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                    <p class="card-text"><strong>Precio: $${(producto.price * 4000).toLocaleString('es-CO')} COP</strong></p>
+                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
                 </div>
             </div>
             `;
@@ -29,34 +53,24 @@ async function obtenerProductos(...categorias) {
     }
 }
 
-document.getElementById("productos").addEventListener("click", function (e) {
-    if (e.target.classList.contains("agregar-carrito")) {
-        const id = Number(e.target.dataset.id);
-        const producto = productos.find(p => p.id === id);
-        if (producto) {
-            agregarAlCarrito(producto);
-        }
-    }
-});
-
 function obtenerProductosHombre() {
     document.getElementById("Hombre")
-        .addEventListener("click", function () {
-            obtenerProductos("mens-shirts", "mens-shoes", "mens-watches");
+        .addEventListener("change", function () {
+            obtenerProductos(true, "mens-shirts", "mens-shoes", "mens-watches");
         });
 }
 
 function obtenerProductosMujer() {
     document.getElementById("Mujer")
-        .addEventListener("click", function () {
-            obtenerProductos("womens-dresses", "tops", "womens-shoes", "womens-watches");
+        .addEventListener("change", function () {
+            obtenerProductos(true, "womens-dresses", "womens-shoes", "womens-watches", "tops");
         });
 }
 
 function obtenerProductosJewelery() {
     document.getElementById("Accesorios")
-        .addEventListener("click", function () {
-            obtenerProductos("womens-jewellery", "womens-bags", "sunglasses");
+        .addEventListener("change", function () {
+            obtenerProductos(false, "womens-jewellery", "womens-bags", "sunglasses");
         });
 }
 
@@ -64,4 +78,5 @@ obtenerProductosHombre();
 obtenerProductosMujer();
 obtenerProductosJewelery();
 
-export { productos };
+obtenerProductos(true, "mens-shirts", "mens-shoes", "mens-watches");
+
